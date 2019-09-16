@@ -14,10 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'nieli9697'
 api = Api(app)
 
-@app.before_first_request 
-# the decorator that is going to affect the method below it; it's going to run that method before the first request
-def create_tables():
-	db.create_all()
 
 jwt = JWT(app, authenticate, identity) # jwt creates an endpoint called "/auth"
 
